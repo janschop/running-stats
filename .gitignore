@@ -1,6 +1,6 @@
 # Build directories
-bin/
-obj/
+RunningStats/bin/
+RunningStats/obj/
 
 # Visual Studio settings
 .vs/
@@ -12,7 +12,9 @@ obj/
 *.userosscache
 
 # Rider settings
-.idea/
+RunningStats/.idea/
 
 # Publish output
-publish/
+RunningStats/publish/
+
+env/
