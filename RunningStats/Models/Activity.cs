@@ -17,7 +17,7 @@ namespace RunningStats.Models
         public string? Description { get; set; }
 
         // VARCHAR
-        public required string Type { get; set; }
+        public string? Type { get; set; }
 
         // INTEGER
         public long? Course_Id { get; set; }
