@@ -23,7 +23,8 @@ namespace RunningStats.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Activity>>> GetActivities()
         {
-            return await _context.Activities.ToListAsync();
+            var activities = await _context.Activities.ToListAsync();
+            return Ok(activities);
         }
         // GET: api/activities/bySport?sport=running
         [HttpGet("bySport")]

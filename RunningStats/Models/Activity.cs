@@ -1,23 +1,23 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace RunningStats.Models
 {
-    #region Keyless
-    [Keyless]
     public class Activity
     {
         // VARCHAR — Use string if the ID isn't strictly numeric
-        public string Activity_Id { get; set; }
+        [Key]
+        public required string Activity_Id { get; set; }
 
         // VARCHAR
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         // VARCHAR
         public string? Description { get; set; }
 
         // VARCHAR
-        public string Type { get; set; }
+        public required string Type { get; set; }
 
         // INTEGER
         public long? Course_Id { get; set; }
@@ -141,5 +141,4 @@ namespace RunningStats.Models
         public int? Hrz_4_Time { get; set; }
         public int? Hrz_5_Time { get; set; }
     }
-    #endregion
 }

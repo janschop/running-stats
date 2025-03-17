@@ -17,7 +17,7 @@ namespace RunningStats.Tests
         private RunningStatsContext GetInMemoryDbContext()
         {
             var options = new DbContextOptionsBuilder<RunningStatsContext>()
-                .UseInMemoryDatabase(databaseName: "TestDb")
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
             return new RunningStatsContext(options);
         }
@@ -28,10 +28,31 @@ namespace RunningStats.Tests
             // Arrange
             using var context = GetInMemoryDbContext();
             // Seed the in-memory database with test data
+            // In your test file, ActivitiesControllerTests.cs:
+
             context.Activities.AddRange(
-                new Activity { Activity_Id = "1", Name = "Morning Run", Sport = "running", Training_Load = 10, Distance = 5.0f, Start_Time = System.DateTime.Now },
-                new Activity { Activity_Id = "2", Name = "Evening Cycle", Sport = "cycling", Training_Load = 20, Distance = 15.0f, Start_Time = System.DateTime.Now }
+                new Activity
+                {
+                    Activity_Id = "1",
+                    Name = "Morning Run",
+                    Type = "Run",          // Provide a value for Type
+                    Sport = "running",
+                    Training_Load = 10f,
+                    Distance = 5.0f,
+                    Start_Time = DateTime.Now
+                },
+                new Activity
+                {
+                    Activity_Id = "2",
+                    Name = "Evening Cycle",
+                    Type = "Cycle",        // Provide a value for Type
+                    Sport = "cycling",
+                    Training_Load = 20f,
+                    Distance = 15.0f,
+                    Start_Time = DateTime.Now
+                }
             );
+
             await context.SaveChangesAsync();
 
             var controller = new ActivitiesController(context, NullLogger<ActivitiesController>.Instance);
@@ -52,10 +73,39 @@ namespace RunningStats.Tests
             using var context = GetInMemoryDbContext();
             // Seed the in-memory database with test data
             context.Activities.AddRange(
-                new Activity { Activity_Id = "1", Name = "Morning Run", Sport = "running", Training_Load = 10, Distance = 5.0f, Start_Time = System.DateTime.Now },
-                new Activity { Activity_Id = "2", Name = "Evening Cycle", Sport = "cycling", Training_Load = 20, Distance = 15.0f, Start_Time = System.DateTime.Now },
-                new Activity { Activity_Id = "3", Name = "Afternoon Run", Sport = "running", Training_Load = 15, Distance = 8.0f, Start_Time = System.DateTime.Now }
+                new Activity
+                {
+                    Activity_Id = "1",
+                    Name = "Morning Run",
+                    Type = "Run",          // Provide a value for Type
+                    Sport = "running",
+                    Training_Load = 10f,
+                    Distance = 5.0f,
+                    Start_Time = DateTime.Now
+                },
+                new Activity
+                {
+                    Activity_Id = "2",
+                    Name = "Evening Cycle",
+                    Type = "Cycle",        // Provide a value for Type
+                    Sport = "cycling",
+                    Training_Load = 20f,
+                    Distance = 15.0f,
+                    Start_Time = DateTime.Now
+                },
+                new Activity
+                {
+                    Activity_Id = "3",
+                    Name = "Afternoon Run",
+                    Type = "Run",          // Provide a value for Type
+                    Sport = "running",
+                    Training_Load = 15f,
+                    Distance = 8.0f,
+                    Start_Time = DateTime.Now
+                }
             );
+            await context.SaveChangesAsync();
+
             await context.SaveChangesAsync();
 
             var controller = new ActivitiesController(context, NullLogger<ActivitiesController>.Instance);
