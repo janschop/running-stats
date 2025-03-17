@@ -1,0 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace RunningStats.Models
+{
+    public class ActivityQueryParams
+    {
+        [Required(ErrorMessage = "Sport is required.")]
+        public string Sport { get; set; } = string.Empty;
+
+        // You can add more parameters (e.g., pagination, sort order)
+        public string? SortOrder { get; set; }
+    }
+}
