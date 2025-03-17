@@ -18,3 +18,6 @@ RunningStats/.idea/
 RunningStats/publish/
 
 env/
+
+RunningStats.Tests/bin/
+RunningStats.Tests/obj/
