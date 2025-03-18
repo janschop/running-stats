@@ -1,7 +1,7 @@
 // src/App.tsx
 import React from 'react';
 import './App.css';
-import ActivitiesList from './components/ActivitiesList';
+// import ActivitiesList from './components/ActivitiesList';
 import ActivitiesGraph from './components/ActivitiesGraph';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       </header>
       <main>
         <ActivitiesGraph />
-        <ActivitiesList />
+        {/* <ActivitiesList /> */}
       </main>
     </div>
   );
