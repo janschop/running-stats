@@ -18,3 +18,5 @@ app.UseAuthorization();
 app.MapControllers();  // ✅ Required to enable API routes
 
 app.Run();
+
+public partial class Program { }

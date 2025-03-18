@@ -21,3 +21,6 @@ env/
 
 RunningStats.Tests/bin/
 RunningStats.Tests/obj/
+
+RunningStats.IntegrationTests/bin/
+RunningStats.IntegrationTests/obj/
