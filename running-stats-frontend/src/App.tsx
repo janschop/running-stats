@@ -11,8 +11,8 @@ function App() {
         <h1>Running Stats</h1>
       </header>
       <main>
-        <ActivitiesList />
         <ActivitiesGraph />
+        <ActivitiesList />
       </main>
     </div>
   );
