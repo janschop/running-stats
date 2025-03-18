@@ -1,6 +1,12 @@
-# Build directories
+# -------------------------------------
+# Visual Studio / .NET build artifacts
+# -------------------------------------
 RunningStats/bin/
 RunningStats/obj/
+RunningStats.Tests/bin/
+RunningStats.Tests/obj/
+RunningStats.IntegrationTests/bin/
+RunningStats.IntegrationTests/obj/
 
 # Visual Studio settings
 .vs/
@@ -17,10 +23,6 @@ RunningStats/.idea/
 # Publish output
 RunningStats/publish/
 
+# Environment folder
 env/
 
-RunningStats.Tests/bin/
-RunningStats.Tests/obj/
-
-RunningStats.IntegrationTests/bin/
-RunningStats.IntegrationTests/obj/
