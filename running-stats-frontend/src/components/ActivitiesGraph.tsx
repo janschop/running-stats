@@ -11,12 +11,9 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import { Activity } from '../interfaces/Activity';
+import { GraphData } from '../interfaces/GraphData';
 
-interface GraphData {
-    date: string;
-    distance: number;
-    trainingLoad: number;
-}
+
 
 const ActivitiesGraph: React.FC = () => {
     const [graphData, setGraphData] = useState<GraphData[]>([]);
