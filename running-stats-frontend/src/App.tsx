@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import ActivitiesList from './components/ActivitiesList';
+import ActivitiesGraph from './components/ActivitiesGraph';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       </header>
       <main>
         <ActivitiesList />
+        <ActivitiesGraph />
       </main>
     </div>
   );

@@ -1,10 +1,9 @@
-// src/components/ActivitiesList.tsx
+// src/components/ActivitiesGraph.tsx
 import React, { useEffect, useState } from 'react';
-import { getActivities } from '../services/api';
+import { getActivitiesBySport } from '../services/api';
 import { Activity } from '../interfaces/Activity';
 
-
-const ActivitiesList: React.FC = () => {
+const ActivitiesGraph: React.FC = () => {
     const [activities, setActivities] = useState<Activity[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -12,7 +11,7 @@ const ActivitiesList: React.FC = () => {
     useEffect(() => {
         const fetchActivities = async () => {
             try {
-                const response = await getActivities();
+                const response = await getActivitiesBySport('running');
                 setActivities(response.data);
             } catch (err) {
                 setError('Failed to fetch activities.');
@@ -29,7 +28,7 @@ const ActivitiesList: React.FC = () => {
 
     return (
         <div>
-            <h2>Activities</h2>
+            <h2>Running</h2>
             <ul>
                 {activities.map(activity => (
                     <li key={activity.activity_Id}>
@@ -41,4 +40,4 @@ const ActivitiesList: React.FC = () => {
     );
 };
 
-export default ActivitiesList;
+export default ActivitiesGraph;
