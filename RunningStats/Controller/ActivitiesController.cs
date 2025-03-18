@@ -39,8 +39,7 @@ namespace RunningStats.Controllers
             {
                 var activities = await _context.Activities
                     .Where(a => a.Sport == sport)
-                    .OrderByDescending(a => a.Training_Load)
-                    // .Select(a => a.Training_Load)
+                    .OrderBy(a => a.Start_Time)
                     .ToListAsync();
 
                 _logger.LogInformation("Fetched {Count} activities", activities.Count);

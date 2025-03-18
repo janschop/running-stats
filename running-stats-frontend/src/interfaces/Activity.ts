@@ -6,4 +6,5 @@ export interface Activity {
     sport: string;
     training_Load?: number;
     distance?: number;
+    start_Time: number;
 }

@@ -1,6 +1,7 @@
 // src/components/ActivitiesGraph.tsx
 import React, { useEffect, useState } from 'react';
 import { getActivitiesBySport } from '../services/api';
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 import { Activity } from '../interfaces/Activity';
 
 const ActivitiesGraph: React.FC = () => {
@@ -9,18 +10,23 @@ const ActivitiesGraph: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchActivities = async () => {
+        const fetchActivitiesBySport = async () => {
             try {
                 const response = await getActivitiesBySport('running');
-                setActivities(response.data);
+                const formattedData = response.data.map((activity: Activity) => ({
+                    date: new Date(activity.start_Time).toLocaleDateString(), // Format date
+                    distance: activity.distance || 0, // Ensure no undefined values
+                }));
+
+                setActivities(formattedData);
             } catch (err) {
-                setError('Failed to fetch activities.');
+                setError('Failed to fetch data.');
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchActivities();
+        fetchActivitiesBySport();
     }, []);
 
     if (loading) return <div>Loading activities...</div>;
@@ -28,14 +34,16 @@ const ActivitiesGraph: React.FC = () => {
 
     return (
         <div>
-            <h2>Running</h2>
-            <ul>
-                {activities.map(activity => (
-                    <li key={activity.activity_Id}>
-                        {activity.name} - {activity.sport} - Training Load: {activity.training_Load} - Distance: {activity.distance}
-                    </li>
-                ))}
-            </ul>
+            <h2>Running Distance Over Time</h2>
+            <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={activities}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="date" />
+                    <YAxis label={{ value: 'Distance (km)', angle: -90, position: 'insideLeft' }} />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="distance" stroke="#8884d8" />
+                </LineChart>
+            </ResponsiveContainer>
         </div>
     );
 };
