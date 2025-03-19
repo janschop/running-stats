@@ -1,7 +1,7 @@
 # Running Stats Full-Stack Application
 
 This repository contains a full-stack application that tracks and visualizes running activity data. It consists of an ASP.NET Core backend API and a React frontend built with TypeScript. Together, these projects form a comprehensive solution for managing and displaying running statistics.
-![Demo of Running Stats website](use.gif)
+![Demo of Running Stats website](demo.gif)
 
 
 ## Repository Structure
