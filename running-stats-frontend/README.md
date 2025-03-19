@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+## Frontend README (running-stats-frontend/README.md)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Running Stats Frontend
 
-## Available Scripts
+This is the frontend for the Running Stats project, built with React and TypeScript. It consumes the ASP.NET Core API to display running activity data in various views (e.g., a list of activities and graphs).
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Responsive UI:** Built with Create React App and TypeScript.
+- **Data Visualization:** Uses Recharts to display graphs (e.g., running distance and training load over time).
+- **API Integration:** Fetches data from the backend API with Axios.
+- **Environment Configuration:** Easily configurable API base URLs via environment variables.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- [Node.js](https://nodejs.org/) (v14 or above recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository (or ensure you have the project locally).
+2. Navigate to the frontend folder:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   cd running-stats-frontend
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies:
+    
+    ```bash
+    npm install
+    ```
+    
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Configuration
 
-### `npm run eject`
+- Create a `.env` file in the project root to set your API base URL (if different from the default):
+    
+    ```env
+    REACT_APP_API_BASE_URL=http://localhost:5231
+    ```
+    
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Running the App
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The app will be available at [http://localhost:3000](http://localhost:3000/).
 
-## Learn More
+### Build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To create a production build:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
+
+## Folder Structure
+
+- **src/components:** Contains reusable UI components (e.g., `ActivitiesList.tsx`, `ActivitiesGraph.tsx`).
+- **src/services:** Contains API service code (`api.ts`) for making HTTP requests.
+- **src/interfaces:** Contains TypeScript interfaces (e.g., `Activity.ts`, `GraphData.ts`).
+
