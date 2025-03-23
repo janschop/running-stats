@@ -26,3 +26,4 @@ RunningStats/publish/
 # Environment folder
 env/
 
+garmindb.log

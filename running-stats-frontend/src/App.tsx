@@ -1,8 +1,8 @@
 // src/App.tsx
 import React from 'react';
 import './App.css';
-// import ActivitiesList from './components/ActivitiesList';
 import ActivitiesGraph from './components/ActivitiesGraph';
+import ActivitiesWeeklyBarChart from './components/ActivitiesWeeklyBarChart';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       </header>
       <main>
         <ActivitiesGraph />
-        {/* <ActivitiesList /> */}
+        <ActivitiesWeeklyBarChart />
       </main>
     </div>
   );
